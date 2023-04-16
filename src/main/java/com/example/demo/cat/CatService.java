@@ -1,11 +1,13 @@
 package com.example.demo.cat;
 
 import java.util.Arrays;
+import java.util.List;
 
+import org.springdoc.core.converters.models.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.example.demo.util.Json;
 
 import lombok.AllArgsConstructor;
 
@@ -16,9 +18,8 @@ public class CatService {
 	final private CatRepository catRepository;
 
 	@Transactional(readOnly = true)
-	public String getCats() {
-		return Json.getJson(Json.getArrayHashMap(catRepository.getCats(), 
-				Arrays.asList("id", "name")));
+	public Page<Cat> getCats(Pageable p) {
+		return catRepository.findAll(p);
 	}
 	
 	@Transactional

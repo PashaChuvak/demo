@@ -1,5 +1,8 @@
 package com.example.demo.cat;
 
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,8 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.utils.Sorting;
 
 import lombok.AllArgsConstructor;
 
@@ -22,9 +28,16 @@ public class CatController {
 
 	final private CatService catService;
 	
-	@GetMapping(value = "list", produces = "application/json")
-	public String getAllCats() {
-		return catService.getCats();
+	@GetMapping(value = "list/{page}/{size}", produces = "application/json")
+	public Page<Cat> getAllCats(@RequestParam String sortFieldName, @RequestParam Sorting sorting, 
+			@PathVariable Integer page, @PathVariable Integer size) {
+		if (Sorting.ASC == sorting) {
+			return catService.getCats(PageRequest.of(page, size, 
+					Sort.by(sortFieldName).ascending()));
+		} else {
+			return catService.getCats(PageRequest.of(page, size, 
+					Sort.by(sortFieldName).descending()));
+		}
 	}
 	
 	@PostMapping("save")
