@@ -5,8 +5,8 @@
 
 <p>Установить Java 17 и MySQL 8 и Maven. Установить пароль пользователю базы данных root - chuvak.</p>
 <p>Выполнить команды в терминале (предварительно перейти в папку с pom.xml):</p> 
-1) Сборка: mvn install
-2) Запуск: java -jar /target/demo-0.0.1-SNAPSHOT.jar
+<br>1) Сборка: mvn install
+<br>2) Запуск: java -jar /target/demo-0.0.1-SNAPSHOT.jar
 
-Просмотреть и проверить API можно по адресу: http://localhost:8080/swagger-ui.
+<p>Просмотреть и проверить API можно по адресу: http://localhost:8080/swagger-ui.</p>
 
