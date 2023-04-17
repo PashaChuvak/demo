@@ -9,6 +9,6 @@ import lombok.Data;
 public class CatDatabase {
 	
 	@EmbeddedId
-	private CatDatabaseId catDBId;
+	private CatDatabaseId catDatabaseId;
 	private String nickName;
 }
