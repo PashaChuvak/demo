@@ -15,6 +15,7 @@ public class Cat {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cat_seq")
 	@SequenceGenerator(name = "cat_seq", allocationSize = 1)
 	private Integer id;
+	private String name;
 	private String color;
 	private String description;
 }
