@@ -21,7 +21,8 @@ public class CatService {
 	@Transactional
 	public Cat save(CatRequest catRequest) {
 		Cat cat = new Cat();
-		cat.setName(catRequest.getName());
+		cat.setColor(catRequest.getColor());
+		cat.setDescription(catRequest.getDescription());
 		return catRepository.save(cat);
 	}
 	
@@ -34,7 +35,8 @@ public class CatService {
 	public Cat updateById(Integer id, CatRequest catRequest) {
 		Cat cat = new Cat();
 		cat.setId(id);
-		cat.setName(catRequest.getName());
+		cat.setColor(catRequest.getColor());
+		cat.setDescription(catRequest.getDescription());
 		return catRepository.save(cat);
 	}
 	
