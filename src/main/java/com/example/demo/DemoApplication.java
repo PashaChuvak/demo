@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.annotations.OpenAPI31;
 
 @OpenAPI31
-@Configuration
 @SpringBootApplication
 public class DemoApplication {
 
