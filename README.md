@@ -8,5 +8,5 @@
 <p>1) Сборка: <b>mvn install</b></p>
 <p>2) Запуск: <b>java -jar /target/demo-0.0.1-SNAPSHOT.jar</b></p>
 
-<p>Просмотреть и проверить API можно по адресу: <a>http://localhost:8080/swagger-ui</a>.</p>
+<p>Просмотреть и проверить API можно по адресу: <http://localhost:8080/swagger-ui>.</p>
 
