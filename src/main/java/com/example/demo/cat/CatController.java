@@ -31,13 +31,12 @@ public class CatController {
 	@GetMapping(value = "list/{page}/{size}", produces = "application/json")
 	public Page<Cat> getAllCats(@RequestParam String sortFieldName, @RequestParam Sorting sorting, 
 			@PathVariable Integer page, @PathVariable Integer size) {
-		if (Sorting.ASC == sorting) {
+		if (Boolean.TRUE.equals(Sorting.ASC == sorting)) {
 			return catService.getCats(PageRequest.of(page, size, 
 					Sort.by(sortFieldName).ascending()));
-		} else {
-			return catService.getCats(PageRequest.of(page, size, 
+		} 
+		return catService.getCats(PageRequest.of(page, size, 
 					Sort.by(sortFieldName).descending()));
-		}
 	}
 	
 	@PostMapping("save")

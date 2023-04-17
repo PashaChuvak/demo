@@ -1,9 +1,5 @@
 package com.example.demo.cat;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.springdoc.core.converters.models.Sort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
